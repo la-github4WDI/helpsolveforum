@@ -1,0 +1,7 @@
+= simple_form_for([@post, @post.comments.build], :html => {:multipart => true}) do |f|
+	= f.input :comment
+	= f.submit
+
+	= f.fields_for :images do |p|
+		= p.input :image, :as => :file, :label => "Image"
+		= p.input :_destroy, :as => :boolean, :required => false, :label => 'Remove image'
